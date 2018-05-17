@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Working on Node.js Core</title>
+
+  <meta name="description" content="NodeConfEU 2017 - Node.js: What's Next">
+  <meta name="author" content="James M Snell">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <img src="media/nearform.png" width="150"/>
+  <div class="reveal">
+    <div class="slides">
+
+      <section style="text-align: left;">
+        <h1>Working on Node.js Core</h1>
+        <p>
+          <small><a href="https://github.com/jasnell">James M Snell</a> / <a href="http://twitter.com/jasnell">@jasnell</a></small>
+        </p>
+      </section>
+
+      <section style="text-align: left;">
+        <h1>Who am I?</h1>
+        <p>I'm an Open Source Architect for nearForm.</p>
+        <ul>
+          <li>
+            I work on open source pretty much full time.
+          </li>
+          <li>
+            I've been doing this for 20 years.
+          </li>
+          <li>
+            I've been actively contributing to Node.js since January 2015.
+          </li>
+        </ul>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <h1>How I got started with Node.js</h1>
+          <p>Take 1</p>
+        </section>
+        <section>
+          <p>
+            My first experience attempting to contribute to Node.js was...
+            interesting.
+          </p>
+          <p>
+            I found a bug in the HTTP module and was told that I "didn't know
+            how this kind of code worked."
+          </p>
+        </section>
+        <section data-background="media/really.gif"></section>
+        <section>
+          <p>
+            I submitted a PR fixing the bug and walked away.
+          </p>
+        </section>
+        <section>
+          <h1>Rule #1:</h1>
+          <p>
+            Don't make assumptions about what people may or may not know.
+          </p>
+          <p>
+            Any assumption you make is likely wrong.
+          </p>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <h1>How I got started with Node.js</h1>
+          <p>Take 2</p>
+        </section>
+        <section>
+          <p>
+            I was working for IBM and they wanted to start using Node.js.
+          </p>
+          <p>
+            A little thing called io.js happened.
+          </p>
+          <p>
+            IBM asked me to get involved and help fix things.
+          </p>
+        </section>
+        <section data-background="media/notpleased.gif"></section>
+        <section>
+          <h2>I was pleasantly surprised.</h2>
+          <p>
+            Node.js core contributors really did care about their
+            community. They just needed a better process.
+          </p>
+        </section>
+        <section>
+          <h1>Rule #2:</h1>
+          <p>
+            Do not ignore your contributors or your community.
+          </p>
+          <p>
+            Without them, the project is not viable.
+          </p>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <h1>What did I do first?</h1>
+        </section>
+        <section>
+          <p>
+            I spent my first three months triaging issues and pull requests.
+          </p>
+          <p>
+            I closed over a thousand stale issues.
+          </p>
+          <p>
+            I took the time to learn the code, and more importantly,
+            took the time to learn the people.
+          </p>
+          <p>
+            We began to build a better process.
+          </p>
+        </section>
+        <section>
+          <h1>Rule #3:</h1>
+          <p>
+            The people are the most important part of any software project.
+          </p>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <h1>Fast forward three years...</h1>
+        </section>
+        <section>
+          <ul>
+            <li>
+              I am a member of the Technical Steering Committee
+            </li>
+            <li>
+              I served on the Node.js Foundation Board of Directors
+            </li>
+            <li>
+              I've been the release manager for every Node.js major release since 4.0
+            </li>
+            <li>
+              I've introduced HTTP/2, WHATWG URL, the new Buffer constructors,
+              WHATWG TextDecoder, and more...
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h1>Rule #4:</h1>
+          <p>
+            Start small.
+          </p>
+          <p>
+            Most of the time, it's the small things that have the most impact.
+          </p>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <h1>Let's talk about Node.js</h1>
+        </section>
+        <section>
+          <ul>
+            <li>22,087 Total Commits as of 3:30pm on April 25th.</li>
+            <li>488 Releases over it's lifetime.</li>
+            <li>1,978 contributors.</li>
+            <li>118 people with commit access to nodejs/node.</li>
+            <li>48k+ Stars and 10k+ Forks</li>
+            <li>137 GitHub repositories.</li>
+            <li>564 people in the GitHub organization.</li>
+            <li>As of right now, there are 5 supported major release lines (4, 6, 8, 9 and 10)</li>
+          </ul>
+        </section>
+        <section>
+          <p>
+            On April 24th (Node.js 10.0.0 Release day) we had 1,137,248
+            downloads, totalling 7+ TiB.
+          </p>
+          <img src="media/downloads.png" />
+          <p style="text-align:center; font-size: 0.5em">
+            (1 TiB === 2<sup>40</sup> bytes)
+          </p>
+        </section>
+        <section>
+          <p>
+            On April 24th, Node.js 8 had 521k+ downloads. Node.js 6 had
+            289k+ downloads.
+          </p>
+          <img src="media/versions.png" />
+          <p style="text-align:center; font-size: 0.5em">
+            (Node.js 10 had 13k+ downloads on day 1, and 77k+ on day 2)
+          </p>
+        </section>
+        <section>
+          <h1>This is all a long way of saying that Node.js is massive.</h1>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <h2>Pull Requests</h2>
+          <p>
+            There have been 1500+ pull requests already this year.
+            <img src="media/pulse.png" />
+          </p>
+        </section>
+        <section>
+          <ul>
+            <li>Pull requests generally stay open at least 48-72 hours.</li>
+            <li>Semver-patch and semver-minor must have at least one sign-off.</li>
+            <li>Semver-major must have at least 2 TSC member sign-offs.</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li><i>Every</i> code change must pass CI and linting.</li>
+            <li>The regular test suite contains 2200+ unit tests.</li>
+            <li>CI runs on 45 different OS and Architecture Combinations.</li>
+            <li>Semver-major changes are smoke-tested against major ecosystem modules.</li>
+            <li>Doc changes are also linted.</li>
+          </ul>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <p>Major releases happen every 6 months.</p>
+          <img src="media/schedule.png" />
+        </section>
+        <section>
+          <ul>
+            <li>Odd-numbered majors...
+              <ul>
+                <li>Released in October</li>
+                <li>Maximum of 9 months support.</li>
+              </ul>
+            </li>
+            <li>Even-numbered majors...
+              <ul>
+                <li>Released in April</li>
+                <li>Enter Long Term Support in October</li>
+                <li>18 months of active support</li>
+                <li>12 months of maintenance support</li>
+              </ul>
+            </li>
+            <p style="text-align: center; font-size: 0.5em">
+              (Odd-numbered does not mean "experimental")
+            </p>
+          </ul>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <p>Security is taken very seriously.</p>
+          <ul>
+            <li>Report possible vulnerabilities to security@nodejs.org.</li>
+            <li>We use HackerOne to triage, manage, and disclose issues.</li>
+            <li>We issue our own CVE's.</li>
+            <li>Responsible disclosure.</li>
+            <li><b>New Security Bug Bounty Program.</b></li>
+          </ul>
+        </section>
+      </section>
+
+
+      <section style="text-align: left;">
+        <section>
+          <h2>New code is only one way of contributing.</h2>
+          <ul>
+            <li>Backporting changes.</li>
+            <li>Community Committee</li>
+            <li>Working Groups (e.g. modules, release, security, website, build, etc)</li>
+            <li>Help Repo (https://github.com/nodejs/help)</li>
+            <li>Mentorship Program (https://github.com/nodejs/mentorship)</li>
+          </ul>
+        </section>
+      </section>
+
+      <section style="text-align: left;">
+        <section>
+          <h2>Getting Started</h2>
+          <ul>
+            <li>I recommend starting the way I did:
+              <ol>
+                <li>Help triage issues.</li>
+                <li>Focus on what you know.</li>
+              </ol>
+            </li>
+            <li>Look for the "Good First Issue" label.</li>
+            <li>Remember the rules:
+              <ol>
+                <li>Don't make assumptions.</li>
+                <li>Don't ignore contributors or the community.</li>
+                <li>The people are most important.</li>
+                <li>Start small.</li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+      </section>
+
+      <section  style="text-align: left;">
+        <section>
+          <h2>One final thing...</h2>
+          <p>Open Source is Art.</p>
+          <p>We are the artists.</p>
+          <p>Embrace the creativity and the fun.</p>
+          <p>Take care of yourself. Avoid burn out.</p>
+        </section>
+        <section>
+          <h2>If you are a company that benefits from open source...</h2>
+          <p>You have an <i>obligation</i> to support those who create it.</p>
+        </section>
+      </section>
+
+      <section  style="text-align: left;">
+        <h1>Thank you.</h1>
+        <p data-markdown>
+          - Twitter: [@jasnell](https://twitter.com/jasnell)
+          - GitHub: [@jasnell](https://github.com/jasnell)
+        </p>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+
+  </script>
+
+</body>
+</html>
